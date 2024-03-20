@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will you be my Valentine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('arkaplan1.jpg');
+      background-size: cover;
+      background-position: center;
+      color: darkblue;
+      zoom: 75%; /* Sayfayı %75 boyutunda göstermek için */
+    }
+    #question {
+      font-size: 24px;
+      margin-top: 50px;
+    }
+    #buttons {
+      margin-top: 20px;
+    }
+    #yesButton, #noButton {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    #yesButton {
+      background-color: green;
+      color: white;
+    }
+    #noButton {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="question">"Benimle date'e çıkar mısın?"</div>
+  <img src="mcquenn.jpg" alt="Şimşek McQueen" id="mcqueenImage">
+  <div id="buttons">
+    <button id="noButton" onclick="handleNo()">Hayır</button>
+    <button id="yesButton" onclick="handleYes()">Evet</button>
+  </div>
+
+  <script>
+    let noCounter = 0;
+
+    function handleNo() {
+      const noResponses = [
+        "Niye hayır diyonnn",
+        "Kırma beni he de be gülüm",
+        "Kızmaya başlıyorum",
+        "Bak lojmanı basıp aşkımmm diye bağırırım",
+        "Maçoyum diyorum arızayım diyorum",
+        "Nolur desem ?",
+        "Biricik karım desem de mi hayır ?",
+        "Bak bi daha evine bırakmam!! (gerçek)",
+        "Hayırına hayırdır",
+        "Hayırsa bi tabak da bize ayır",
+        "Benden mi gocunuon be gel özlemişsindir sen beni :)",
+        "Tamam artık evete bas selenim (opsiyonsuz) (daha prolaşamadık)"
+      ];
+
+      const noText = document.getElementById("question");
+      noText.textContent = noResponses[noCounter % noResponses.length];
+      noCounter++;
+
+      const yesButton = document.getElementById("yesButton");
+      const noButton = document.getElementById("noButton");
+
+      // "Hayır" butonuna her basıldığında buton boyutunu 4 kat daha küçültür
+      noButton.style.fontSize = `${18 - noCounter * 4}px`;
+      // "Hayır" butonuna her basıldığında "Evet" butonunu 4 kat daha fazla büyütür
+      yesButton.style.fontSize = `${18 + noCounter * 4}px`;
+    }
+
+    function handleYes() {
+      const question = document.getElementById("question");
+      const mcqueenImage = document.getElementById("mcqueenImage");
+      const yesButton = document.getElementById("yesButton");
+      const noButton = document.getElementById("noButton");
+
+      question.textContent = "KAÇOVVVVVV :) :)";
+      mcqueenImage.src = "sally.jpg";
+      mcqueenImage.alt = "Sally";
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+    }
+  </script>
+</body>
+</html>
